@@ -11,12 +11,19 @@ const Input = styled.input`
 const Paragraph = (props) => {
   const inputRef = useRef("");
 
+  const changeFocus = (e) => {
+    e.preventDefault();
+    console.log(e);
+    e.target.nextElementSibling.firstChild.focus();
+  };
+
   return (
-    <form className={classes.container} onSubmit={(e) => e.preventDefault()}>
+    <form className={classes.container} onSubmit={changeFocus}>
       <Input
         type="text"
         ref={inputRef}
         className={classes.paragraph}
+        placeholder={"Type something✍"}
         onChange={() => {
           // console.log(inputRef.current.tabIndex);
         }}

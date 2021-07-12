@@ -5,7 +5,7 @@ import Title from "./components/Component/Title/Title";
 
 function App() {
   return (
-    <Container width={70}>
+    <Container width={70} marginTop={100}>
       <Title>Insert Title</Title>
       <Paragraph></Paragraph>
       <Paragraph></Paragraph>

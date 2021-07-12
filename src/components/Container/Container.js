@@ -6,14 +6,16 @@ import styled from "styled-components";
  * width come parametro. E' piu un wrapper che altro
  */
 const StyledContainer = styled.div`
-  text-align: center;
   width: ${(props) => props.width || 50}%;
   margin: auto;
+  margin-top: ${(props) => props.marginTop}px;
 `;
 
 const Container = (props) => {
   return (
-    <StyledContainer width={props.width}>{props.children}</StyledContainer>
+    <StyledContainer width={props.width} marginTop={props.marginTop}>
+      {props.children}
+    </StyledContainer>
   );
 };
 
