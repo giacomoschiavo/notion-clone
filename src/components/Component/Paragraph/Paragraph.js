@@ -1,11 +1,14 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import classes from "./Paragaph.module.css";
 
 const Input = styled.input`
   width: 100%;
   outline: none;
-  font-size: 25px;
+  font-size: 20px;
+  border: 0;
+  padding: 5px;
+  padding-left: 0;
 `;
 
 const Paragraph = (props) => {
@@ -13,9 +16,13 @@ const Paragraph = (props) => {
 
   const changeFocus = (e) => {
     e.preventDefault();
-    console.log(e);
-    e.target.nextElementSibling.firstChild.focus();
+    inputRef.current.blur();
+    props.onAppendParagraph();
   };
+
+  useEffect(() => {
+    if (props.isFocused) inputRef.current.focus();
+  });
 
   return (
     <form className={classes.container} onSubmit={changeFocus}>
@@ -24,9 +31,6 @@ const Paragraph = (props) => {
         ref={inputRef}
         className={classes.paragraph}
         placeholder={"Type something✍"}
-        onChange={() => {
-          // console.log(inputRef.current.tabIndex);
-        }}
       ></Input>
     </form>
   );
