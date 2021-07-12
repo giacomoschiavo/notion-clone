@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
+import TreeCtx from "../../store/tree-context";
 import styled from "styled-components";
 import classes from "./Paragaph.module.css";
 
@@ -14,11 +15,12 @@ const Input = styled.input`
 const Paragraph = (props) => {
   const [text, setText] = useState("");
   const inputRef = useRef(""); // solo per il focus iniziale
+  const ctx = useContext(TreeCtx);
 
   const changeFocus = (e) => {
     e.preventDefault();
     e.target.blur();
-    props.onAppendParagraph();
+    ctx.appendParagraph();
   };
 
   useEffect(() => {
