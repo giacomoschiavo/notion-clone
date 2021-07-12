@@ -3,6 +3,8 @@ import "./App.css";
 import TreeCtx from "./store/tree-context";
 import Container from "./components/Container/Container";
 import Paragraph from "./components/Paragraph/Paragraph";
+import Quote from "./components/Paragraph/Quote/Quote";
+import Callout from "./components/Paragraph/Callout/Callout";
 import Title from "./components/Paragraph/Title/Title";
 
 function App() {
@@ -17,15 +19,17 @@ function App() {
   return (
     <TreeCtx.Provider value={{ appendParagraph: onAppendParagraphHandler }}>
       <Container width={70} marginTop={100}>
-        <Title onAppendParagraph={() => {}}></Title>
+        <Title></Title>
         {tree.map((node, index) => (
           <Paragraph
             key={node.id}
             id={node.id}
             type={node.type}
             isFocused={node.focus}
-          ></Paragraph>
+          />
         ))}
+        <Quote>HELOOOOOOOO</Quote>
+        <Callout>HELLLOOOOOOOOOO</Callout>
       </Container>
     </TreeCtx.Provider>
   );

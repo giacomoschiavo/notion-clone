@@ -1,15 +1,21 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import TreeCtx from "../../store/tree-context";
 import styled from "styled-components";
-import classes from "./Paragaph.module.css";
+import TextContainer from "../Container/TextContainer";
 
-const Input = styled.input`
+const Input = styled.textarea`
+  box-sizing: border-box;
+  font-family: "Lato";
   width: 100%;
   outline: none;
-  font-size: ${(props) => (props.type === "h1" ? 50 : 20)}px;
+  font-size: ${(props) =>
+    props.type === "h1" ? 50 : 20}px; // da fare in Title
   border: 0;
   padding: 5px;
   padding-left: 0;
+  margin: 5px;
+  background-color: transparent;
+  resize: none;
 `;
 
 const Paragraph = (props) => {
@@ -28,18 +34,21 @@ const Paragraph = (props) => {
   });
 
   return (
-    <form className={classes.container} onSubmit={changeFocus}>
-      <Input
-        type={props.type}
-        ref={inputRef}
-        className={classes.paragraph}
-        placeholder={props.placeholder || "Type something..."}
-        value={text || props.children}
-        onChange={(e) => {
-          setText(e.target.value);
-        }}
-      ></Input>
-    </form>
+    <TextContainer type={props.type}>
+      <form onSubmit={changeFocus}>
+        <Input
+          wrap="soft"
+          rows="1"
+          type={props.type}
+          ref={inputRef}
+          placeholder={props.placeholder || "Type something..."}
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+        ></Input>
+      </form>
+    </TextContainer>
   );
 };
 
