@@ -6,10 +6,10 @@ const Paragraph = (props) => {
 
   return (
     <div
+      ref={inputRef}
       className={[classes.input, classes[props.type]].join(" ")}
       type={props.type}
       id={props.id}
-      ref={inputRef}
       data-text={"Type something..."}
       contentEditable
     ></div>

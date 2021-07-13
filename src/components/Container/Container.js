@@ -15,6 +15,7 @@ const StyledContainer = styled.div`
 const Container = (props) => {
   const [tree, setTree] = useState([{ type: "h1", id: 0 }]);
   const [idCounter, setIdCounter] = useState(0);
+  const [focusElemId, setFocusElemId] = useState(0);
 
   const keydownHandler = useCallback(
     (e) => {
@@ -28,10 +29,15 @@ const Container = (props) => {
           prevTree.filter((node) => node.id !== +focusedElem.id)
         );
       } else if (e.key === "Enter") {
-        setTree((prevTree) => [
-          ...prevTree,
-          { type: "text", id: idCounter + 1 },
-        ]);
+        focusedElem.blur();
+        setTree((prevTree) => {
+          const index = prevTree.findIndex(
+            (node) => node.id === +focusedElem.id
+          );
+          prevTree.splice(index + 1, 0, { type: "text", id: idCounter + 1 });
+          return [...prevTree];
+        });
+        setFocusElemId(idCounter + 1);
         setIdCounter((prevId) => prevId + 1);
       }
     },
@@ -39,6 +45,7 @@ const Container = (props) => {
   );
 
   useEffect(() => {
+    document.getElementById(focusElemId).focus();
     window.addEventListener("keydown", keydownHandler);
     return () => {
       window.removeEventListener("keydown", keydownHandler);

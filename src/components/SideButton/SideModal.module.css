@@ -1,0 +1,6 @@
+.modal {
+  position: relative;
+  left: -200px;
+  background-color: white;
+  opacity: 1;
+}
