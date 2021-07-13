@@ -1,5 +1,5 @@
-.h1 {
-  /* height: 50px; */
+.container {
+  position: relative;
 }
 
 .quote {
@@ -12,4 +12,17 @@
   padding: 15px;
   background-color: #eee;
   margin: 15px 5px;
+}
+
+.sideButton {
+  position: absolute;
+  left: -30px;
+}
+
+.container:hover .sideButton {
+  opacity: 0.5;
+}
+
+.sideButtonFocus {
+  opacity: 0.5;
 }

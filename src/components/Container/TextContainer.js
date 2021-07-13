@@ -7,13 +7,17 @@ const TextContainer = (props) => {
   const [isOnFocus, setIsOnFocus] = useState(false);
   return (
     <div
-      className={{ ...classes.container, ...classes[props.type] }}
+      className={[classes.container, classes[props.type]].join(" ")}
       type={props.type}
       onFocus={() => setIsOnFocus(true)}
       onBlur={() => setIsOnFocus(false)}
     >
-      {/* {isOnFocus && <SideButton />} */}
-      <SideButton />
+      <SideButton
+        className={[
+          classes.sideButton,
+          isOnFocus && classes.sideButtonFocus,
+        ].join(" ")}
+      />
       <Paragraph id={props.id} type={props.type}>
         {props.children}
       </Paragraph>

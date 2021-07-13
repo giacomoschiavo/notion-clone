@@ -1,16 +1,13 @@
 import React from "react";
-import { IoReloadCircleOutline } from "react-icons/io5";
-import styled from "styled-components";
+import { GrDrag } from "react-icons/gr";
+import classes from "./SideButton.module.css";
+const SideButton = (props) => {
+  const divClasses = [classes.container, props.className];
 
-const Container = styled.div`
-  position: relative;
-`;
-
-const SideButton = () => {
   return (
-    <Container>
-      <IoReloadCircleOutline />
-    </Container>
+    <div className={divClasses.join(" ")}>
+      <GrDrag />
+    </div>
   );
 };
 

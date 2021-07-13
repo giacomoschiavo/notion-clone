@@ -1,0 +1,12 @@
+.container {
+  transition: 0.5s;
+  opacity: 0;
+  font-size: 20px;
+  padding: 5px 2px;
+  display: flex;
+}
+
+.container:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
