@@ -9,21 +9,23 @@
 - [x] change type button (SideButton)
 - - [x] aggiustare la posizione a lato del paragrafo
 
+- [x] problema: doppio click per scrivere su nuovo Paragraph
+- [x] bold per heading
+- [x] Placeholder in div
+- [x] fix doppio click su SideButton
+
+- [x] SideButton piu generico
+- - [x] icona selezionata da TextContainer
+- - [x] css spostato su module di SideButton
+
 - [ ] sistemare il sistema di tree rendering
 - - [x] aggiugere dopo al componente con focus
 - - [x] spostare il focus al nuovo componente
 - - [ ] risolvere warning in Container.js (dependency in useEffect)
 
-<!-- - [ ] SideButton piu generico
-- - [ ] icona selezionata da TextContainer
-- - [ ] css spostato su module di SideButton -->
-
 - [ ] SideModal
 - - [x] creare Modal e Backdrop
 - - [ ] implementare cambio type
-- - [ ] layout
+- - [ ] layout/grafica Modal
 
-- [ ] bold per heading
-- [ ] problema: doppio click per scrivere su nuovo Paragraph
-- [ ] prestazioni
-- [ ] Placeholder in div
+- [ ] fixare prestazioni :/

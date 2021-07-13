@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Modal from "../Container/Modal";
 import classes from "./SideModal.module.css";
 
 const SideModal = (props) => {
-  const [showModal, setShowModal] = useState(props.show);
-
-  useEffect(() => {
-    setShowModal(props.show);
-  }, [props.show]);
-
   const allClasses = [classes.modal];
 
   const onClickHandler = (type) => {
-    props.node.type = type;
-    setShowModal(false);
+    // props.node.type = type; // TODO: pls change this
+    props.onClose();
   };
 
   return (
-    <Modal className={allClasses.join(" ")} show={showModal}>
+    <Modal
+      className={allClasses.join(" ")}
+      show={props.show}
+      onBackdropClose={props.onClose}
+    >
       <div className={classes.item} onClick={onClickHandler.bind(this, "h1")}>
         Text
       </div>

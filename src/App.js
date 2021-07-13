@@ -3,7 +3,7 @@ import "./App.css";
 import Container from "./components/Container/Container";
 
 function App() {
-  return <Container width={60} marginTop={100} />;
+  return <Container />;
 }
 
 export default App;

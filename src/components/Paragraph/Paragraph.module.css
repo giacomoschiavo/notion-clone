@@ -10,9 +10,10 @@
   outline: none;
   font-size: 18px;
   border: 0;
-  padding: 10px 0;
+  padding: 5px 0;
   padding-left: 0;
   margin: 5px 0;
+  background-color: #eee;
 }
 
 .h1 {

@@ -7,7 +7,7 @@ import TextContainer from "./TextContainer";
  * width come parametro. E' piu un wrapper che altro
  */
 
-const Container = (props) => {
+const Container = () => {
   const [tree, setTree] = useState([{ type: "text", id: 0 }]);
   const [idCounter, setIdCounter] = useState(0);
   const [focusElemId, setFocusElemId] = useState(0);

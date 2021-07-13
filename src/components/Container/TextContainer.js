@@ -21,7 +21,11 @@ const TextContainer = (props) => {
       <Paragraph id={props.node.id} type={props.node.type}>
         {props.children}
       </Paragraph>
-      <SideModal node={props.node} show={showModal} />
+      <SideModal
+        node={props.node}
+        show={showModal}
+        onClose={() => setShowModal(false)}
+      />
     </div>
   );
 };
