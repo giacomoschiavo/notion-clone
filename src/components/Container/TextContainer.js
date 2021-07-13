@@ -1,32 +1,24 @@
-import React from "react";
-import styled, { css } from "styled-components";
-
-const Container = styled.div`
-  ${(props) =>
-    props.type === "h1" &&
-    css`
-      /* height: 50px; */
-    `}
-
-  ${(props) =>
-    props.type === "quote" &&
-    css`
-      border-left: 5px solid #555;
-      padding-left: 5px;
-      margin: 15px 5px;
-    `}
-
-  ${(props) =>
-    props.type === "callout" &&
-    css`
-      padding: 15px;
-      background-color: #eee;
-      margin: 15px 5px;
-    `}
-`;
+import React, { useState } from "react";
+import classes from "./TextContainer.module.css";
+import SideButton from "../SideButton/SideButton";
+import Paragraph from "../Paragraph/Paragraph";
 
 const TextContainer = (props) => {
-  return <Container type={props.type}>{props.children}</Container>;
+  const [isOnFocus, setIsOnFocus] = useState(false);
+  return (
+    <div
+      className={{ ...classes.container, ...classes[props.type] }}
+      type={props.type}
+      onFocus={() => setIsOnFocus(true)}
+      onBlur={() => setIsOnFocus(false)}
+    >
+      {/* {isOnFocus && <SideButton />} */}
+      <SideButton />
+      <Paragraph id={props.id} type={props.type}>
+        {props.children}
+      </Paragraph>
+    </div>
+  );
 };
 
 export default TextContainer;

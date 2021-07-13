@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import Container from "./components/Container/Container";
-import Paragraph from "./components/Paragraph/Paragraph";
 import Title from "./components/Paragraph/Title/Title";
+import TextContainer from "./components/Container/TextContainer";
 
 function App() {
-  const [tree, setTree] = useState([{ type: "text", id: 0 }]);
+  const [tree, setTree] = useState([{ type: "h1", id: 0 }]);
   const [idCounter, setIdCounter] = useState(0);
 
   const keydownHandler = useCallback(
@@ -39,9 +39,8 @@ function App() {
 
   return (
     <Container width={60} marginTop={100}>
-      <Title>New Title</Title>
       {tree.map((node) => (
-        <Paragraph key={node.id} id={node.id} type={node.type} />
+        <TextContainer key={node.id} id={node.id} type={node.type} />
       ))}
     </Container>
   );

@@ -1,0 +1,15 @@
+.h1 {
+  /* height: 50px; */
+}
+
+.quote {
+  border-left: 5px solid #555;
+  padding-left: 5px;
+  margin: 15px 5px;
+}
+
+.callout {
+  padding: 15px;
+  background-color: #eee;
+  margin: 15px 5px;
+}

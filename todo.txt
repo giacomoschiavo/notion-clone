@@ -1,10 +1,9 @@
+[x] mettere SideButton e Paragraph dentro a TextContainer
+[x] sistemare lo stile di input in h1
+[x] Placeholder in div
 [] sistemare il sistema di tree rendering
   [] aggiugere dopo al componente con focus
-[] sistemare lo stile di input in h1
-[] mettere Paragraph dentro a TextContainer
-  [] e cambiare in App.js
 [] styled => module in TextContainer
 [] styled => module in Paragraph
 [] pulizia di codice(context)
 [] spostare la merda in App.js su Container
-[] Placeholder in div
