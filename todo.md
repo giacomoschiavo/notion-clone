@@ -1,10 +1,10 @@
 - [x] mettere SideButton e Paragraph dentro a TextContainer
 - [x] sistemare lo stile di input in h1
-- [x] Placeholder in div
 - [x] styled => module in TextContainer
 - [x] styled => module in Paragraph
 - [x] spostare la merda in App.js su Container
 - [x] pulizia di codice(context)
+- [x] Portal su Backdrop
 
 - [x] change type button (SideButton)
 - - [x] aggiustare la posizione a lato del paragrafo
@@ -20,7 +20,10 @@
 
 - [ ] SideModal
 - - [x] creare Modal e Backdrop
-- - [ ]
+- - [ ] implementare cambio type
+- - [ ] layout
+
 - [ ] bold per heading
 - [ ] problema: doppio click per scrivere su nuovo Paragraph
-- [ ] Portal su Backdrop
+- [ ] prestazioni
+- [ ] Placeholder in div

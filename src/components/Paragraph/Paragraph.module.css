@@ -1,4 +1,4 @@
-[contentEditable="true"]:empty:not(:focus):before {
+[contentEditable="true"]:empty:focus:before {
   content: attr(data-text);
   opacity: 0.5;
 }
@@ -12,11 +12,10 @@
   border: 0;
   padding: 10px 0;
   padding-left: 0;
-  /* border: 1px solid black; */
   margin: 5px 0;
-  /* background-color: #eee; */
 }
 
 .h1 {
+  font-family: "Lato-Bold";
   font-size: 50px;
 }

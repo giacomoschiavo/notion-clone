@@ -1,27 +1,22 @@
 import React, { useState } from "react";
 import classes from "./TextContainer.module.css";
-import SideButton from "../SideButton/SideButton";
+import SideButtons from "../SideButtons/SideButtons";
 import Paragraph from "../Paragraph/Paragraph";
-import SideModal from "../SideButton/SideModal";
+import SideModal from "../SideButtons/SideModal";
 
 const TextContainer = (props) => {
   const [showModal, setShowModal] = useState(false);
-  const [isOnFocus, setIsOnFocus] = useState(false);
   return (
     <div
       className={[classes.container, classes[props.node.type]].join(" ")}
       type={props.type}
-      onFocus={() => setIsOnFocus(true)}
-      onBlur={() => setIsOnFocus(false)}
     >
-      <SideButton
-        className={[
-          classes.sideButton,
-          isOnFocus && classes.sideButtonFocus,
-        ].join(" ")}
-        onClick={() => {
+      <SideButtons
+        className={classes.sideButtons}
+        onDrag={() => {
           setShowModal((prevShow) => !prevShow);
         }}
+        onAdd={() => {}}
       />
       <Paragraph id={props.node.id} type={props.node.type}>
         {props.children}

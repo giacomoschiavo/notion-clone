@@ -8,20 +8,16 @@
 
 .quote {
   border-left: 5px solid #555;
-  padding-left: 5px;
+  padding-left: 10px;
   margin: 15px 5px;
 }
 
 .callout {
-  padding: 15px;
+  padding: 8px 18px;
   background-color: #eee;
   margin: 15px 5px;
 }
 
-.container:hover .sideButton {
-  opacity: 0.5;
-}
-
-.sideButtonFocus {
-  opacity: 0.5;
+.container:hover .sideButtons {
+  opacity: 0.2;
 }

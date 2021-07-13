@@ -1,19 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
-import styled from "styled-components";
+import classes from "./Container.module.css";
 import TextContainer from "./TextContainer";
 
 /**
  * Container è usato esclusivamente come un contenitore centrato che riceve
  * width come parametro. E' piu un wrapper che altro
  */
-const StyledContainer = styled.div`
-  width: 50%;
-  margin: auto;
-  margin-top: 100px;
-`;
 
 const Container = (props) => {
-  const [tree, setTree] = useState([{ type: "quote", id: 0 }]);
+  const [tree, setTree] = useState([{ type: "text", id: 0 }]);
   const [idCounter, setIdCounter] = useState(0);
   const [focusElemId, setFocusElemId] = useState(0);
 
@@ -53,11 +48,11 @@ const Container = (props) => {
   }, [keydownHandler]);
 
   return (
-    <StyledContainer width={props.width} marginTop={props.marginTop}>
+    <div className={classes.container}>
       {tree.map((node) => (
         <TextContainer key={node.id} node={node} />
       ))}
-    </StyledContainer>
+    </div>
   );
 };
 

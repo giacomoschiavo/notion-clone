@@ -1,16 +1,12 @@
-.container {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: -30px;
+.icon {
   transition: 0.2s;
-  opacity: 0;
+  opacity: 1;
   font-size: 20px;
   padding: 5px 2px;
   display: flex;
 }
 
-.container:hover {
+.icon:hover {
   background-color: #ddd;
   cursor: pointer;
 }

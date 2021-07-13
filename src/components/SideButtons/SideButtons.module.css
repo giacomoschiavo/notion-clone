@@ -1,0 +1,11 @@
+.sideButtonsContainer {
+  position: absolute;
+  transition: 0.1s;
+  left: -60px;
+  display: flex;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: row;
+  justify-content: center;
+  opacity: 0;
+}
