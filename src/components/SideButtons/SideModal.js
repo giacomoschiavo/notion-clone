@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Modal from "../Container/Modal";
 import classes from "./SideModal.module.css";
+import TreeCtx from "../store/tree-context";
 
 const SideModal = (props) => {
   const allClasses = [classes.modal];
+  const ctx = useContext(TreeCtx);
 
   const onClickHandler = (type) => {
-    // props.node.type = type; // TODO: pls change this
+    ctx.setTree((prevTree) => {
+      const index = prevTree.findIndex((node) => node.id === props.node.id);
+      prevTree[index].type = type;
+      return prevTree;
+    });
     props.onClose();
   };
 

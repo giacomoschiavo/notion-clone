@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import classes from "./Container.module.css";
 import TextContainer from "./TextContainer";
-
-/**
- * Container è usato esclusivamente come un contenitore centrato che riceve
- * width come parametro. E' piu un wrapper che altro
- */
+import TreeCtx from "../store/tree-context";
 
 const Container = () => {
   const [tree, setTree] = useState([{ type: "text", id: 0 }]);
@@ -24,15 +20,16 @@ const Container = () => {
           prevTree.filter((node) => node.id !== +focusedElem.id)
         );
       } else if (e.key === "Enter") {
-        focusedElem.blur();
+        const newId = idCounter + 1;
         setTree((prevTree) => {
           const index = prevTree.findIndex(
             (node) => node.id === +focusedElem.id
           );
-          prevTree.splice(index + 1, 0, { type: "text", id: idCounter + 1 });
+          prevTree.splice(index + 1, 0, { type: "text", id: newId });
           return [...prevTree];
         });
-        setFocusElemId(idCounter + 1);
+        focusedElem.blur();
+        setFocusElemId(newId);
         setIdCounter((prevId) => prevId + 1);
       }
     },
@@ -40,19 +37,24 @@ const Container = () => {
   );
 
   useEffect(() => {
-    document.getElementById(focusElemId).focus();
     window.addEventListener("keydown", keydownHandler);
     return () => {
       window.removeEventListener("keydown", keydownHandler);
     };
   }, [keydownHandler]);
 
+  useEffect(() => {
+    document.getElementById(focusElemId).focus();
+  }, [focusElemId]);
+
   return (
-    <div className={classes.container}>
-      {tree.map((node) => (
-        <TextContainer key={node.id} node={node} />
-      ))}
-    </div>
+    <TreeCtx.Provider value={{ setTree: setTree }}>
+      <div className={classes.container}>
+        {tree.map((node) => (
+          <TextContainer key={node.id} node={node} />
+        ))}
+      </div>
+    </TreeCtx.Provider>
   );
 };
 

@@ -1,6 +1,7 @@
 [contentEditable="true"]:empty:focus:before {
   content: attr(data-text);
   opacity: 0.5;
+  cursor: text;
 }
 
 .input {
