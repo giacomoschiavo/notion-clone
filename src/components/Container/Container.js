@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
 `;
 
 const Container = (props) => {
-  const [tree, setTree] = useState([{ type: "h1", id: 0 }]);
+  const [tree, setTree] = useState([{ type: "quote", id: 0 }]);
   const [idCounter, setIdCounter] = useState(0);
   const [focusElemId, setFocusElemId] = useState(0);
 
@@ -55,7 +55,7 @@ const Container = (props) => {
   return (
     <StyledContainer width={props.width} marginTop={props.marginTop}>
       {tree.map((node) => (
-        <TextContainer key={node.id} id={node.id} type={node.type} />
+        <TextContainer key={node.id} node={node} />
       ))}
     </StyledContainer>
   );
