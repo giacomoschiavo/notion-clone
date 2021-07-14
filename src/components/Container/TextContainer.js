@@ -30,4 +30,4 @@ const TextContainer = (props) => {
   );
 };
 
-export default TextContainer;
+export default React.memo(TextContainer);
