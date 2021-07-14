@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Modal from "../Container/Modal";
+import Modal from "../UI/Modal";
 import classes from "./SideModal.module.css";
 import TreeCtx from "../store/tree-context";
 

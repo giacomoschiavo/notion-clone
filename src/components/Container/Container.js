@@ -8,13 +8,17 @@ const Container = () => {
   const [idCounter, setIdCounter] = useState(0);
   const [focusElemId, setFocusElemId] = useState(0);
 
+  const treeLength = tree.length;
+
   const keydownHandler = useCallback(
     (e) => {
       const focusedElem = document.activeElement;
       if (focusedElem === document.body) return;
       if (
-        (focusedElem.id && e.key === "Backspace" && !focusedElem.textContent) ||
-        e.key === "Delete"
+        ((e.key === "Backspace" && !focusedElem.textContent) ||
+          e.key === "Delete") &&
+        treeLength > 1 &&
+        focusedElem.id
       ) {
         setTree((prevTree) =>
           prevTree.filter((node) => node.id !== +focusedElem.id)
@@ -34,7 +38,7 @@ const Container = () => {
         setIdCounter((prevId) => prevId + 1);
       }
     },
-    [idCounter]
+    [idCounter, treeLength]
   );
 
   useEffect(() => {
