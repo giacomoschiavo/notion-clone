@@ -4,7 +4,7 @@ import TextContainer from "./TextContainer";
 import TreeCtx from "../store/tree-context";
 
 const Container = () => {
-  const [tree, setTree] = useState([{ type: "text", id: 0 }]);
+  const [tree, setTree] = useState([{ type: "h1", id: 0 }]);
   const [idCounter, setIdCounter] = useState(0);
   const [focusElemId, setFocusElemId] = useState(0);
 

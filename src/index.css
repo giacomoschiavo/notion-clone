@@ -7,3 +7,7 @@
   font-family: "Lato-Bold";
   src: url(./fonts/Lato-Bold.ttf) format("truetype");
 }
+
+::selection {
+  background: rgba(45, 170, 219, 0.3);
+}
