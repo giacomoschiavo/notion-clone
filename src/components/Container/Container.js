@@ -13,13 +13,14 @@ const Container = () => {
       const focusedElem = document.activeElement;
       if (focusedElem === document.body) return;
       if (
-        (focusedElem.id && e.key === "Backspace" && !focusedElem.textContent) || // possono eliminare solo quelli che sono in tree
+        (focusedElem.id && e.key === "Backspace" && !focusedElem.textContent) ||
         e.key === "Delete"
       ) {
         setTree((prevTree) =>
           prevTree.filter((node) => node.id !== +focusedElem.id)
         );
       } else if (e.key === "Enter") {
+        e.preventDefault();
         const newId = idCounter + 1;
         setTree((prevTree) => {
           const index = prevTree.findIndex(

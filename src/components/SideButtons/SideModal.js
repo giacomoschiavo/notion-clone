@@ -16,30 +16,23 @@ const SideModal = (props) => {
     props.onClose();
   };
 
+  const types = ["text", "h1", "quote", "callout"];
+
   return (
     <Modal
       className={allClasses.join(" ")}
       show={props.show}
       onBackdropClose={props.onClose}
     >
-      <div className={classes.item} onClick={onClickHandler.bind(this, "h1")}>
-        Text
-      </div>
-      <div className={classes.item} onClick={onClickHandler.bind(this, "h1")}>
-        Title
-      </div>
-      <div
-        className={classes.item}
-        onClick={onClickHandler.bind(this, "quote")}
-      >
-        Quote
-      </div>
-      <div
-        className={classes.item}
-        onClick={onClickHandler.bind(this, "callout")}
-      >
-        Callout
-      </div>
+      {types.map((type) => (
+        <div
+          key={type}
+          className={classes.item}
+          onClick={onClickHandler.bind(this, type)}
+        >
+          {type.charAt(0).toUpperCase() + type.slice(1)}
+        </div>
+      ))}
     </Modal>
   );
 };

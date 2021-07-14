@@ -17,6 +17,10 @@
   background-color: #eee;
 }
 
+.text {
+  font-size: 20px;
+}
+
 .h1 {
   font-family: "Lato-Bold";
   font-size: 50px;
